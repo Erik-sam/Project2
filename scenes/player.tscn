@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=3 uid="uid://dxfe3v6h758r0"]
 
-[ext_resource type="Script" uid="uid://cscxjq6uijsui" path="res://script/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://b50t2cy8whh4s" path="res://script/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bhwt1kiot67a3" path="res://Assets/elements-supremacy-spritesheets/spaghetti_atlas.png" id="2_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
@@ -344,7 +344,7 @@ script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 2)
-scale = Vector2(0.5117647, 0.5117647)
+scale = Vector2(0.511765, 0.511765)
 sprite_frames = SubResource("SpriteFrames_n7ghd")
 animation = &"default_left"
 
