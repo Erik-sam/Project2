@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 const SPEED = 100.0
 var last_direction := Vector2(1,0)
 var input = Vector2.ZERO
@@ -8,7 +8,7 @@ var can_move = true
 enum Direction {NONE, UP, DOWN, RIGHT, LEFT}
 var facing_direction = Direction.NONE
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(_delta: float) -> void:
 	if not can_move:  # <-- ДОБАВЕНО
