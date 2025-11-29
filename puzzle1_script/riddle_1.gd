@@ -5,11 +5,9 @@ extends Sprite2D
 
 var player_in_range := false
 var texts = [
+	"Press [E] to interact.",
 	"Only the plate that faces the liar is safe to stand upon.",
-	"North claims: I am the correct plate.
-	 South claims: North is lying.
-	 East claims: West is wrong.
-	 West is silent."
+	"North claims: I am the correct plate.\nSouth claims: North is lying.\nEast claims: West is wrong.\nWest is silent."
 ]
 var texts_index = 0
 var text_change = false
