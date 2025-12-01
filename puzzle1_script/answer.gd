@@ -8,6 +8,8 @@ func _ready():
 func _on_body_entered(body):
 	if body is Player:
 		if Puzzle1Answer.puzzle_solved:
+			Global.level_progress["puzzle1"] = true
+			Global.last_solved_puzzle = "puzzle1"
 			_go_to_main_scene()
 		else:
 			print("Puzzle not solved yet.")  # или махни това
