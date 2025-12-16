@@ -77,9 +77,13 @@ func _on_answer_edit_text_submitted(new_text: String) -> void:
 	]
 	if answer in correct_answers:
 		feedback_label.text = "Correct!"
-		puzzle_solved.emit()
-		queue_free()
+		Global.level_progress["puzzle3"] = true
+		Global.last_solved_puzzle = "puzzle3"
+		Global.save_game()
+		get_tree().change_scene_to_file("res://Scenes/node_2d.tscn")
 	else:
 		feedback_label.text = "Try again."
 		answer_edit.select_all()
 		answer_edit.grab_focus()
+	
+	
