@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://tpir6r033nbg"]
+
+[ext_resource type="FontFile" uid="uid://js78wjypxcro" path="res://Assets/fonts/PixelOperator8.ttf" id="1_jpo37"]
+
+[resource]
+line_spacing = 1.0
+paragraph_spacing = 55.0
+font = ExtResource("1_jpo37")
+font_size = 32
+font_color = Color(0.7, 0.7, 0.7, 1)
+outline_size = 3
+shadow_size = 3
+shadow_color = Color(0, 0.745098, 0.894118, 0.917647)
