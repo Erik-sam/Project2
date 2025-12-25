@@ -669,7 +669,7 @@ texture = ExtResource("2_d7vh0")
 8:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_rih6e"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 6
 sources/0 = SubResource("TileSetAtlasSource_b4bn3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8jut7"]
@@ -1325,7 +1325,7 @@ texture = ExtResource("5_mjqgh")
 20:18/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_shtpt"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 6
 sources/0 = SubResource("TileSetAtlasSource_683ma")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7vh0"]
@@ -1714,7 +1714,7 @@ shape = SubResource("RectangleShape2D_eso5p")
 
 [node name="player" parent="." instance=ExtResource("7_j46pd")]
 z_index = 6
-position = Vector2(13, -54)
+position = Vector2(16, -118)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(3, 3)
