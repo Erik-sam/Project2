@@ -6,14 +6,25 @@ func _ready():
 	area.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
-	if body is Player:
+	# Увери се, че проверката за играча работи (може да ползваш и is_in_group("player"))
+	if body.name == "player" or body.is_in_group("player") or (body.get_script() and body is Player):
+		
+		# Проверяваме дали загадката е решена (от другата променлива)
 		if Puzzle1Answer.puzzle_solved:
+			print("ИЗЛИЗАНЕ: Загадката е решена. Записвам и излизам.")
+			
+			# 1. Обновяваме глобалните данни
 			Global.level_progress["puzzle1"] = true
 			Global.last_solved_puzzle = "puzzle1"
+			
+			# 2. ВАЖНО: ЗАПИСВАМЕ ГИ ВЪВ ФАЙЛ!
+			Global.save_game()
+			
+			# 3. Сменяме сцената
 			_go_to_main_scene()
 		else:
-			print("Puzzle not solved yet.")  # или махни това
+			print("Puzzle not solved yet.")
 
 func _go_to_main_scene():
-	var new_scene = load("res://scenes/node_2d.tscn")
-	get_tree().change_scene_to_packed(new_scene)
+	# change_scene_to_file е по-лесно и директно от loading/packed
+	get_tree().change_scene_to_file("res://Scenes/node_2d.tscn")

@@ -4,53 +4,52 @@ extends Node
 @export var player: Node2D
 
 @export_group("Doors Configuration")
-# Тук ще е списъкът с всички 9 затворени врати
+# Списък със затворените врати
 @export var closed_doors: Array[Node2D]
-
-# Тук ще е списъкът с всички 9 отворени врати (спрайтовете)
+# Списък с отворените врати
 @export var open_doors: Array[Node2D]
 
 @export_group("Spawn Positions")
-# Тук са координатите, където героят се появява след всеки пъзел
 @export var spawn_positions: Array[Vector2]
 
 func _ready():
 	# 1. Зареждаме записа
 	Global.load_game()
+	print("--- НОВ GAME MANAGER ЗАРЕДЕН ---")
+	print("Прогрес: ", Global.level_progress)
 	
-	# 2. Обновяваме нивото
 	update_level()
 
 func update_level():
-	# Скриваме всички отворени врати за начало (безопасност)
-	for door in open_doors:
-		if door: door.visible = false
+	# Скриваме всички отворени врати в началото
+	for d in open_doors:
+		if d: d.visible = false
 
-	# --- ЦИКЪЛ ЗА ВСИЧКИ 9 ПЪЗЕЛА ---
-	# Този код проверява автоматично от Puzzle 1 до Puzzle 9
-	for i in range(1, 10): 
-		var puzzle_key = "puzzle" + str(i) # Създава "puzzle1", "puzzle2"...
+	# Проверяваме Пъзели 1 до 9
+	for i in range(1, 10):
+		var key = "puzzle" + str(i)
+		var index = i - 1
 		
-		# Ако пъзелът е решен...
-		if Global.level_progress.has(puzzle_key) and Global.level_progress[puzzle_key] == true:
+		if Global.level_progress.has(key) and Global.level_progress[key] == true:
+			print("ОТКЛЮЧВАМ ВРАТА ", i)
 			
-			# Намираме правилния индекс в списъка (Пъзел 1 е индекс 0)
-			var list_index = i - 1 
+			# Махаме затворената
+			if index < closed_doors.size() and closed_doors[index] != null:
+				closed_doors[index].visible = false
+				closed_doors[index].process_mode = Node.PROCESS_MODE_DISABLED
+				# Спираме колизията изрично, ако има такава
+				var col = closed_doors[index].get_node_or_null("CollisionShape2D")
+				if col: col.set_deferred("disabled", true)
 			
-			# 1. Махаме затворената врата
-			if list_index < closed_doors.size() and closed_doors[list_index] != null:
-				closed_doors[list_index].queue_free()
-			
-			# 2. Показваме отворената врата
-			if list_index < open_doors.size() and open_doors[list_index] != null:
-				open_doors[list_index].visible = true
+			# Показваме отворената
+			if index < open_doors.size() and open_doors[index] != null:
+				open_doors[index].visible = true
 
-	# --- ПОЗИЦИЯ НА ГЕРОЯ ---
+	# Местим играча
 	if Global.last_solved_puzzle != "" and player:
-		# Взимаме номера на последния пъзел (напр. от "puzzle5" взимаме 5)
-		var puzzle_num_str = Global.last_solved_puzzle.replace("puzzle", "")
-		var index = int(puzzle_num_str) - 1 # Вадим 1, за да стане индекс (0-8)
+		var num = Global.last_solved_puzzle.replace("puzzle", "").to_int()
+		var p_index = num - 1
 		
-		# Телепортираме героя
-		if index < spawn_positions.size():
-			player.position = spawn_positions[index]
+		if p_index < spawn_positions.size():
+			print("Местя играча на позиция: ", spawn_positions[p_index])
+			player.position = spawn_positions[p_index]
