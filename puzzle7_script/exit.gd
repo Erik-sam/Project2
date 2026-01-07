@@ -30,5 +30,8 @@ func _on_body_entered(body):
 		return
 
 	if body.is_in_group("player"):
-		print("➡️ ИЗХОД!")
+		Global.level_progress["puzzle7"] = true
+		Global.last_solved_puzzle = "puzzle7"
+		Global.checkpoint_id = "Checkpoint_7"
+		Global.save_game()
 		get_tree().change_scene_to_file("res://scenes/node_2d.tscn")

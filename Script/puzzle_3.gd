@@ -13,6 +13,7 @@ signal puzzle_closed
 
 var first_part_solved := false
 
+
 func _ready() -> void:
 	intro_label.visible = true
 	riddle_label.visible = false
@@ -79,6 +80,7 @@ func _on_answer_edit_text_submitted(new_text: String) -> void:
 		feedback_label.text = "Correct!"
 		Global.level_progress["puzzle3"] = true
 		Global.last_solved_puzzle = "puzzle3"
+		Global.checkpoint_id = "Checkpoint_3"
 		Global.save_game()
 		get_tree().change_scene_to_file("res://Scenes/node_2d.tscn")
 	else:

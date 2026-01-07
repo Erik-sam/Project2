@@ -11,9 +11,10 @@ extends Node
 @export var spawn_positions: Array[Vector2]
 
 func _ready():
-	# 1. Зареждаме записа (Това ще дръпне данните от Global)
 	Global.load_game()
 	update_level()
+	await get_tree().physics_frame
+	set_player_spawn()
 
 func update_level():
 	# Скриваме всички отворени врати за безопасност
@@ -42,10 +43,13 @@ func update_level():
 				if is_instance_valid(door):
 					door.visible = true
 
-	# Позициониране на героя
-	if Global.last_solved_puzzle != "" and player:
-		var puzzle_num = Global.last_solved_puzzle.replace("puzzle", "").to_int()
-		var spawn_idx = puzzle_num - 1
-		
-		if spawn_idx < spawn_positions.size():
-			player.position = spawn_positions[spawn_idx]
+func set_player_spawn():
+	if Global.checkpoint_id == "" or player == null:
+		return
+
+	var cp = get_tree().current_scene.get_node_or_null(Global.checkpoint_id)
+	if cp:
+		player.global_position = cp.global_position
+		print("SPAWN at checkpoint:", Global.checkpoint_id, cp.global_position)
+	else:
+		print("❌ Checkpoint not found:", Global.checkpoint_id)

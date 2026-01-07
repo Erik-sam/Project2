@@ -15,4 +15,8 @@ func set_active(value: bool):
 
 func _on_body_entered(body):
 	if body is Player and active:
+		Global.level_progress["puzzle8"] = true
+		Global.last_solved_puzzle = "puzzle8"
+		Global.checkpoint_id = "Checkpoint_8"
+		Global.save_game()
 		get_tree().change_scene_to_file(next_scene)
