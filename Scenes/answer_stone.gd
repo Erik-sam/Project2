@@ -35,6 +35,7 @@ func _on_body_entered(body):
 			print("ВЕРЕН ОТГОВОР!")
 			Global.level_progress["puzzle4"] = true
 			Global.last_solved_puzzle = "puzzle4"
+			Global.checkpoint_id = "Checkpoint_4"
 			Global.save_game()
 			call_deferred("go_home")
 		else:

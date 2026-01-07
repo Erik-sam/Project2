@@ -51,6 +51,7 @@ func finish_puzzle():
 	print("ПОБЕДА!")
 	Global.level_progress["puzzle5"] = true
 	Global.last_solved_puzzle = "puzzle5"
+	Global.checkpoint_id = "Checkpoint_5"
 	Global.save_game()
 	call_deferred("change_scene")
 

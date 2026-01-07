@@ -16,6 +16,7 @@ func _on_body_entered(body):
 			# 1. Обновяваме глобалните данни
 			Global.level_progress["puzzle1"] = true
 			Global.last_solved_puzzle = "puzzle1"
+			Global.checkpoint_id = "Checkpoint_1"
 			
 			# 2. ВАЖНО: ЗАПИСВАМЕ ГИ ВЪВ ФАЙЛ!
 			Global.save_game()

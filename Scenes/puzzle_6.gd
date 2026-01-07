@@ -2,6 +2,8 @@ extends Node2D
 
 signal puzzle_solved
 
+var main_scene_path = "res://Scenes/node_2d.tscn"
+
 @export var player: CharacterBody2D
 @onready var finish_zone: Area2D = $FinishZone
 @onready var hint_label: Label = $HintLabel
@@ -82,7 +84,11 @@ func _on_answer_submitted(text: String) -> void:
 	# правилен отговор за тази гатанка:
 	# "keyboard"
 	if answer == "keyboard" or answer == "a keyboard":
-		feedback_label2.text = "Correct!"
+		Global.level_progress["puzzle6"] = true
+		Global.last_solved_puzzle = "puzzle6"
+		Global.checkpoint_id = "Checkpoint_6"
+		Global.save_game()
+		get_tree().change_scene_to_file(main_scene_path)
 		puzzle_solved.emit()
 	else:
 		feedback_label2.text = "Try again."

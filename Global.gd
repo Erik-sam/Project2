@@ -8,13 +8,18 @@ var level_progress = {
 	"puzzle7": false, "puzzle8": false, "puzzle9": false
 }
 
+var checkpoint_id: String = ""
 var last_solved_puzzle = "" 
+
+var checkpoint_position: Vector2 = Vector2.ZERO
+var has_checkpoint := false
 
 func save_game():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
 		file.store_var(level_progress)
 		file.store_var(last_solved_puzzle)
+		file.store_var(checkpoint_id)
 		print("Global: Играта е записана успешно!")
 
 func load_game():
@@ -23,6 +28,7 @@ func load_game():
 		if file:
 			level_progress = file.get_var()
 			last_solved_puzzle = file.get_var()
+			checkpoint_id = file.get_var()
 			print("Global: Играта е заредена!")
 	else:
 		print("Global: Няма файл със записана игра.")

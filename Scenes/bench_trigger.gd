@@ -4,6 +4,7 @@ func _on_body_entered(body):
 	if body.name == "player":
 		Global.level_progress["puzzle2"] = true
 		Global.last_solved_puzzle = "puzzle2"
+		Global.checkpoint_id = "Checkpoint_2"
 		Global.save_game()
 		print("Puzzle solved!")
 		get_tree().change_scene_to_file(main_scene_path)
