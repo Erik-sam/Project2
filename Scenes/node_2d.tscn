@@ -2416,6 +2416,7 @@ scale = Vector2(1.07685, 1.24997)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-0.491254, 9.96993)
+zoom = Vector2(2, 2)
 
 [node name="TileMap" type="Node" parent="."]
 
@@ -2641,7 +2642,8 @@ script = ExtResource("10_p20hg")
 position = Vector2(3.39834, -9.38125)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closedDoors/door1/Area2D"]
-position = Vector2(-2.26556, 11.987)
+visible = false
+position = Vector2(-2.26498e-06, 2.63607)
 shape = SubResource("CapsuleShape2D_he4j0")
 
 [node name="door2" type="Sprite2D" parent="closedDoors"]
@@ -2658,6 +2660,7 @@ scale = Vector2(0.864865, 0.782915)
 script = ExtResource("1_p20hg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closedDoors/door2/`door2"]
+visible = false
 z_index = 7
 position = Vector2(-529, 1811)
 shape = SubResource("CapsuleShape2D_2ooml")
@@ -2676,6 +2679,7 @@ script = ExtResource("4_fg7i4")
 z_index = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closedDoors/door3/Area2D"]
+visible = false
 z_index = 6
 position = Vector2(1.25574, 0.602675)
 shape = SubResource("CapsuleShape2D_gwne5")
@@ -2694,6 +2698,7 @@ z_index = 6
 position = Vector2(-10.4653, 48.3119)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closedDoors/door4/Area2D"]
+visible = false
 z_index = 6
 position = Vector2(11.8607, -47.7003)
 shape = SubResource("CapsuleShape2D_hpu6p")
@@ -2710,6 +2715,7 @@ script = ExtResource("18_hpu6p")
 [node name="Area2D" type="Area2D" parent="closedDoors/door5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closedDoors/door5/Area2D"]
+visible = false
 position = Vector2(0.727317, 1.83495)
 shape = SubResource("CapsuleShape2D_1nvmp")
 
@@ -2726,7 +2732,8 @@ script = ExtResource("19_op2xg")
 position = Vector2(2.82093, 3.27277)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closedDoors/door6/Area2D"]
-position = Vector2(-2.1157, -0.65456)
+visible = false
+position = Vector2(0.695652, 1.18864)
 shape = SubResource("CapsuleShape2D_03fgm")
 
 [node name="door7" type="Sprite2D" parent="closedDoors"]
@@ -2740,6 +2747,7 @@ script = ExtResource("20_1nvmp")
 [node name="Area2D" type="Area2D" parent="closedDoors/door7"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closedDoors/door7/Area2D"]
+visible = false
 position = Vector2(1.15146, 2.02004)
 shape = SubResource("CapsuleShape2D_ny2ev")
 
@@ -2754,7 +2762,7 @@ script = ExtResource("21_el1jj")
 [node name="Area2D" type="Area2D" parent="closedDoors/door8"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closedDoors/door8/Area2D"]
-position = Vector2(0.534435, 1.56041)
+visible = false
 shape = SubResource("CapsuleShape2D_jiy1d")
 
 [node name="door9" type="Sprite2D" parent="closedDoors"]
@@ -2768,7 +2776,7 @@ script = ExtResource("22_03fgm")
 [node name="Area2D" type="Area2D" parent="closedDoors/door9"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="closedDoors/door9/Area2D"]
-position = Vector2(0.522567, 0.351301)
+visible = false
 shape = SubResource("CapsuleShape2D_ud1os")
 
 [node name="Checkpoint_1" type="Node2D" parent="."]
