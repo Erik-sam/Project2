@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqrm6abhwsr6f"]
+[gd_scene load_steps=17 format=3 uid="uid://cqrm6abhwsr6f"]
 
 [ext_resource type="Script" uid="uid://b8mygmdfevb6h" path="res://Scenes/pause_menu.gd" id="1_lj4oq"]
 [ext_resource type="Texture2D" uid="uid://d2mbhi35uaul2" path="res://Assets/Pixel Art Top Down - Basic v1-2/Texture/TX Tileset Wall.png" id="2_qwhev"]
 [ext_resource type="Texture2D" uid="uid://bfrwse34rdvs4" path="res://Assets/Pixel Art Top Down - Basic v1-2/Texture/TX Tileset Grass.png" id="3_5w4ur"]
+[ext_resource type="FontFile" uid="uid://0q2tpaghfflr" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_ey1tb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwhev"]
 
@@ -28,6 +29,9 @@ texture_margin_top = 0.250755
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(-0.498917, 129.073, 63.9783, 110.503)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqxqw"]
+bg_color = Color(0.941176, 0.941176, 0.941176, 0.376471)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5w4ur"]
 atlas = ExtResource("2_qwhev")
@@ -114,25 +118,65 @@ alignment = 1
 [node name="ResumeButton" type="Button" parent="FramePanel/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(1080, 200)
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.458824, 0.458824, 0.458824, 1)
+theme_override_colors/font_hover_color = Color(0.458824, 0.458824, 0.458824, 1)
+theme_override_colors/font_color = Color(0.458824, 0.458824, 0.458824, 0.698039)
+theme_override_colors/font_pressed_color = Color(0.458824, 0.458824, 0.458824, 0.376471)
+theme_override_fonts/font = ExtResource("3_ey1tb")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqxqw")
 text = "Resume"
 
 [node name="MusicButton" type="Button" parent="FramePanel/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(1080, 200)
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.458824, 0.458824, 0.458824, 1)
+theme_override_colors/font_hover_color = Color(0.458824, 0.458824, 0.458824, 1)
+theme_override_colors/font_color = Color(0.458824, 0.458824, 0.458824, 0.698039)
+theme_override_colors/font_pressed_color = Color(0.458824, 0.458824, 0.458824, 0.376471)
+theme_override_fonts/font = ExtResource("3_ey1tb")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqxqw")
 text = "Music: ON"
 
 [node name="SFXButton" type="Button" parent="FramePanel/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(1080, 200)
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.458824, 0.458824, 0.458824, 1)
+theme_override_colors/font_hover_color = Color(0.458824, 0.458824, 0.458824, 1)
+theme_override_colors/font_color = Color(0.458824, 0.458824, 0.458824, 0.698039)
+theme_override_colors/font_pressed_color = Color(0.458824, 0.458824, 0.458824, 0.376471)
+theme_override_fonts/font = ExtResource("3_ey1tb")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqxqw")
 text = "SFX: ON"
 
 [node name="QuitButton" type="Button" parent="FramePanel/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(1080, 200)
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.460347, 0.460347, 0.460347, 1)
+theme_override_colors/font_hover_color = Color(0.458405, 0.458405, 0.458405, 1)
+theme_override_colors/font_color = Color(0.458824, 0.458824, 0.458824, 0.698039)
+theme_override_colors/font_pressed_color = Color(0.458824, 0.458824, 0.458824, 0.376471)
+theme_override_fonts/font = ExtResource("3_ey1tb")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gqxqw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqxqw")
 text = "Quit"
 
 [node name="Control" type="Control" parent="FramePanel"]
