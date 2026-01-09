@@ -384,10 +384,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvl01"]
-height = 40.0
+radius = 7.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 27.0
+radius = 3.44592
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 6
@@ -400,7 +401,7 @@ sprite_frames = SubResource("SpriteFrames_n7ghd")
 animation = &"default_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 18)
+position = Vector2(1, 26)
 shape = SubResource("CapsuleShape2D_nvl01")
 
 [node name="PickupArea2D" type="Area2D" parent="."]
@@ -408,7 +409,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea2D"]
-position = Vector2(2, 13)
+position = Vector2(2, 18)
+scale = Vector2(3.83462, 5.55409)
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="CarryPoint" type="Node2D" parent="."]

@@ -1,10 +1,60 @@
 extends Control
 
+# Дръпни референции към контейнерите (ако са с други имена, оправи ги тук)
+@onready var menu_buttons = $VBoxContainer  # Контейнерът с Start/Exit
+@onready var settings_menu = $SettingsMenu  # Панелът с настройките
+
 func _ready():
 	AudioManager.set_mode(AudioManager.MusicMode.MENU)
+	# Уверяваме се, че при старт настройките са скрити
+	settings_menu.visible = false
+	var title = $Label
+	title.pivot_offset = title.size / 2
+	var tween = create_tween().set_loops()
+	tween.tween_property(title, "scale", Vector2(1.05, 1.05), 1.0).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(title, "scale", Vector2(1.0, 1.0), 1.0).set_trans(Tween.TRANS_SINE)
+	menu_buttons.visible = true
+	var current_mode = DisplayServer.window_get_mode()
+	if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		# Ако възелът ти се казва CheckButton (промени името ако е друго)
+		$SettingsMenu/VBoxContainer/CheckButton.button_pressed = true
+
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/node_2d.tscn")
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+# --- НОВИТЕ ФУНКЦИИ ---
+
+func _on_settings_button_pressed():
+	# Скриваме главното меню, показваме настройките
+	menu_buttons.visible = false
+	settings_menu.visible = true
+
+func _on_back_button_pressed():
+	# Обратното
+	menu_buttons.visible = true
+	settings_menu.visible = false
+
+
+func _on_h_slider_value_changed(value):
+	var bus_index = AudioServer.get_bus_index("Master")
+	
+	# Ако плъзгачът е на 0, заглушаваме напълно (Mute)
+	if value == 0:
+		AudioServer.set_bus_mute(bus_index, true)
+	else:
+		AudioServer.set_bus_mute(bus_index, false)
+		# Превръщаме линейната стойност (0-1) в децибели (Logarithmic)
+		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+
+
+func _on_check_button_toggled(toggled_on):
+	if toggled_on:
+		# Включва режим "Цял екран"
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		# Връща в режим "Прозорец"
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
