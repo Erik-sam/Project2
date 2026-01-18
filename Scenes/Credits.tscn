@@ -121,6 +121,13 @@ theme_override_font_sizes/font_size = 32
 text = "Tiny Pixel Fantasy"
 uri = "https://l.facebook.com/l.php?u=https%3A%2F%2Fcazwolf.itch.io%2Ftiny-pixel-fantasy-generator%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwNlpTRU9ya0hBb01kMmFGSHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR5sabTSesfqAY21XufCaxncEXc3_-hcpe0cxwgBf8uqT4WE0hxbKRV_mlg0sA_aem_-R7WpiwVGYpklGeNwF8njg&h=AT2CNKMYMrXNtgH2hF3nW5fAzxbTpR16ljY55gN6a5F87PTmgRVfbo46XiOsSLSOzOo8Zeo2nu79afLqSv2PegA_AXDr5SlMmkbahTuOAK3FUubSc-Luqrz8alS0ONQsawY3ETaFhbj59WAYRSm-S4n4KQ"
 
+[node name="LinkButton4" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Sound effects"
+uri = "https://pixabay.com/sound-effects/QFaWuxI-9CvQMcaxfzGggysoXgR6Ko_LK1QsjJXFmZbZGQeDx0ZyXUsj_aem_si76nGAXuUdPAb7MAgwEbQ"
+
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 4
