@@ -62,3 +62,4 @@ func set_player_spawn():
 		print("SPAWN at checkpoint:", Global.checkpoint_id, cp.global_position)
 	else:
 		print("❌ Checkpoint not found:", Global.checkpoint_id)
+	print("checkpoint_id =", Global.checkpoint_id)
