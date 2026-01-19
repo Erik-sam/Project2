@@ -32,3 +32,16 @@ func load_game():
 			print("Global: Играта е заредена!")
 	else:
 		print("Global: Няма файл със записана игра.")
+
+func reset_game():
+	level_progress = {
+		"puzzle1": false, "puzzle2": false, "puzzle3": false,
+		"puzzle4": false, "puzzle5": false, "puzzle6": false,
+		"puzzle7": false, "puzzle8": false, "puzzle9": false
+	}
+	checkpoint_id = ""
+	last_solved_puzzle = ""
+	checkpoint_position = Vector2.ZERO
+	has_checkpoint = false
+
+	print("Global: Прогресът е ресетнат")

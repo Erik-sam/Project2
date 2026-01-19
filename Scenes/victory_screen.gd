@@ -22,8 +22,15 @@ func _ready():
 	tween2.tween_property(label2, "scale", Vector2(1.1, 1.1), 1.0).set_trans(Tween.TRANS_SINE)
 	tween2.tween_property(label2, "scale", Vector2(1.0, 1.0), 1.0).set_trans(Tween.TRANS_SINE)
 	
-func _on_button_pressed():
-	# Връща към главното меню (провери дали пътят е верен!)
+func _on_try_again_pressed():
+	get_tree().paused = false
+
+	# 1. трием файла
+	if FileAccess.file_exists(Global.SAVE_PATH):
+		DirAccess.remove_absolute(Global.SAVE_PATH)
+	# 2. чистим runtime state
+	Global.reset_game()
+	# 3. обратно в менюто
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 
